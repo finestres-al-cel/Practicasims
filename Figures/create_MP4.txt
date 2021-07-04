@@ -1,0 +1,1 @@
+ffmpeg -framerate 15 -pattern_type glob -i '*3D.jpg' -vf scale=320:240 -c:v libx264 galxoc.mp4
