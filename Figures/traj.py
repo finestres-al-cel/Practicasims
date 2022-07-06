@@ -14,7 +14,7 @@ t,npar,coor = pvelr[:,0],pvelr[:,1],pvelr[:,2:]
 fig = plt.figure()
 
 ax = fig.add_subplot(111)
-for j in range(0,len(coor[0,:])/3):
+for j in range(0,int(len(coor[0,:])/3)):
  r=np.sqrt(coor[:,j*3]*coor[:,j*3]+coor[:,j*3+1]*coor[:,j*3+1]+coor[:,j*3+2]*coor[:,j*3+2])
  print(j)
  print(r)
