@@ -14,7 +14,7 @@ for f in files:
     os.remove(f)
 
 for fil in sorted(glob.glob(path+'Snap*')):
- print fil
+ print(fil)
  pvelr=scipy.genfromtxt(fil,comments='#')
  x,y,z,vx,vy,vz,e1,e2,e3,m = pvelr[:,0],pvelr[:,1],pvelr[:,2],pvelr[:,3],pvelr[:,4],pvelr[:,5],pvelr[:,6],pvelr[:,7],pvelr[:,8],pvelr[:,9]
 
