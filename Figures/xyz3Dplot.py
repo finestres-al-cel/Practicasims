@@ -29,7 +29,7 @@ for fil in sorted(glob.glob(path+'Snap*')):
  ax.set_xlim([-15,15])
  ax.set_zlim([-15,15])
  ax.grid(False)
- ax.set_aspect(1.)
+ ax.set_aspect('equal')
 # plt.show()
  pylab.savefig(fil+'3D.jpg')
 # plt.show()
