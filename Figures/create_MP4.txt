@@ -1,4 +1,5 @@
 ## Ull, el "ffmpeg" ha d'estar instal·lat a l'ordinador
 ## És possible que el reproductor no reconegui el format del "mp4", és recomanable usar el programa "VLC"
 ##
-cat *.jpg | ffmpeg -f image2pipe -framerate 15 glob -i - -vf scale=320:240 -c:v libx264 output.mp4
+##cat *.jpg | ffmpeg -f image2pipe -framerate 15 glob -i - -vf scale=320:240 -c:v libx264 output.mp4
+cat *.jpg | ffmpeg -f image2pipe -framerate 15 -i - -vf scale=320:240 -c:v libx264 -pix_fmt yuv420p out.mp4
