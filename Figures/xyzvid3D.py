@@ -1,18 +1,12 @@
 import matplotlib
 matplotlib.use('TkAgg') # do this before importing pylab
-from PIL import Image
-import scipy
-import pylab 
-import numpy as np
-from mpl_toolkits.mplot3d import Axes3D
+from PIL import Image 
 import matplotlib.pyplot as plt
 import glob
-from parameters import *
+from parameters import path
 
 fig = plt.figure()
 ax = fig.add_subplot(111)
-
-#path='../DATA/galxoc/galxoc3/'
 
 def animate():
     filenames=sorted(glob.glob(path+'*3D.jpg'))

@@ -1,14 +1,9 @@
-import matplotlib
-import scipy
-import pylab 
 import numpy as np
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
-import glob
-from parameters import *
+from parameters import path
 
 
-pvelr=scipy.genfromtxt(path+'trajectories.dat',comments='#')
+pvelr=np.genfromtxt(path+'trajectories.dat',comments='#')
 t,npar,coor = pvelr[:,0],pvelr[:,1],pvelr[:,2:]
 
 fig = plt.figure()

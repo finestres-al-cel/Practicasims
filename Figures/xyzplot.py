@@ -1,20 +1,9 @@
-import matplotlib
-import scipy
-import pylab 
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
 import glob
-from parameters import *
-
-#path='../DATA/galxoc/galxoc3/'
-
-#fig = plt.figure()
-
-#ax = fig.add_subplot(111)
-
+from parameters import path
 import os
-import glob
 
 files = glob.glob(path+'*.jpg')
 for f in files:
@@ -22,7 +11,7 @@ for f in files:
 
 for fil in sorted(glob.glob(path+'Snap*')):
  print(fil)
- pvelr=scipy.genfromtxt(fil,comments='#')
+ pvelr=np.genfromtxt(fil,comments='#')
  x,y,z,vx,vy,vz,e1,e2,e3,m = pvelr[:,0],pvelr[:,1],pvelr[:,2],pvelr[:,3],pvelr[:,4],pvelr[:,5],pvelr[:,6],pvelr[:,7],pvelr[:,8],pvelr[:,9]
 
  fig = plt.figure()
@@ -49,7 +38,7 @@ for fil in sorted(glob.glob(path+'Snap*')):
  ax2.set_ylabel('Z')
  ax2.set_aspect(1.)
 
- pylab.savefig(fil+'.jpg')
+ plt.savefig(fil+'.jpg')
 # plt.show()
  plt.clf()
  plt.cla()
