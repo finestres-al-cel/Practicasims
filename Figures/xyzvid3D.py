@@ -1,23 +1,30 @@
 import matplotlib
-matplotlib.use('TkAgg') # do this before importing pylab
-from PIL import Image 
+matplotlib.use("TkAgg")
+
+from matplotlib.animation import FuncAnimation
+from PIL import Image
 import matplotlib.pyplot as plt
 import glob
 from parameters import path
 
-fig = plt.figure()
-ax = fig.add_subplot(111)
+filenames = sorted(glob.glob(path + "*3D.jpg"))
 
-def animate():
-    filenames=sorted(glob.glob(path+'*3D.jpg'))
-    im=plt.imshow(Image.open(filenames[0]))
-    for filename in filenames[:]:
-        image=Image.open(filename)
-        im.set_data(image)
-        fig.canvas.manager.window.after(100) 
-        fig.canvas.draw() 
-                
+fig, ax = plt.subplots()
 
-win = fig.canvas.manager.window
-fig.canvas.manager.window.after(100, animate)
+im = ax.imshow(Image.open(filenames[0]))
+ax.axis("off")
+
+def update(frame):
+    im.set_data(Image.open(filenames[frame]))
+    return [im]
+
+ani = FuncAnimation(
+    fig,
+    update,
+    frames=len(filenames),
+    interval=100,
+    blit=True,
+    repeat=True
+)
+
 plt.show()
